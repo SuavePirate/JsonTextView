@@ -20,7 +20,6 @@ namespace SPControls
         public static readonly BindableProperty UpperCaseProperty = BindableProperty.Create("UpperCase", typeof(bool), typeof(JsonTextView), defaultValue: false, propertyChanged: (bindable, oldVal, newVal) =>
         {
             var view = (JsonTextView)bindable;
-            view.SetJson((string)newVal);
         });
         public bool UpperCase
         {
