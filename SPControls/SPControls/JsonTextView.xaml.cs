@@ -17,6 +17,22 @@ namespace SPControls
             var view = (JsonTextView)bindable;
             view.SetJson((string)newVal);
         });
+        public static readonly BindableProperty UpperCaseProperty = BindableProperty.Create("UpperCase", typeof(bool), typeof(JsonTextView), defaultValue: false, propertyChanged: (bindable, oldVal, newVal) =>
+        {
+            var view = (JsonTextView)bindable;
+            view.SetJson((string)newVal);
+        });
+        public bool UpperCase
+        {
+            get
+            {
+                return (bool)GetValue(UpperCaseProperty);
+            }
+            set
+            {
+                SetValue(UpperCaseProperty, value);
+            }
+        }
         public string Json
         {
             get { return (string)GetValue(JsonProperty); }
@@ -37,7 +53,7 @@ namespace SPControls
                 {
                     var boldSpan = new Span()
                     {
-                        Text = $"{pair.Key}: ",
+                        Text = UpperCase ? $"{pair.Key.SplitCamelCase().ToUpper()}: " : $"{pair.Key.SplitCamelCase()}: ",
                         FontAttributes = FontAttributes.Bold
                     };
                     var detailSpan = new Span()
