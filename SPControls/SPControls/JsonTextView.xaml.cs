@@ -52,7 +52,7 @@ namespace SPControls
                 {
                     var boldSpan = new Span()
                     {
-                        Text = UpperCase ? $"{pair.Key.SplitCamelCase().ToUpper()}: " : $"{pair.Key.SplitCamelCase()}: ",
+                        Text = UpperCase ? $"{pair.Key.SplitCamelCase().ToTitleCase()}: " : $"{pair.Key.SplitCamelCase()}: ",
                         FontAttributes = FontAttributes.Bold
                     };
                     var detailSpan = new Span()

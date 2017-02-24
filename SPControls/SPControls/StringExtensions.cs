@@ -21,5 +21,9 @@ namespace SPControls
                 "$1 $2"
             );
         }
+        public static string ToTitleCase(this string str)
+        {
+            return string.Join(" ", str.Split(' ').Select(i => $"{i.Substring(0, 1).ToUpper()}{i.Substring(1).ToLower()}").ToArray());
+        }
     }
 }
